@@ -1,3 +1,5 @@
+//// Класс берется из JavaRush
+
 package com.mycompany.arkanoid;
 
 import javax.swing.*;

@@ -69,6 +69,11 @@ public class Arkanoid {
         
         //Исполняем цикл, пока игра не окончека
         while (!isGameOver) {
+            //отрисовываем все объекты
+            canvas.clear();
+            draw(canvas);
+            canvas.print();
+
             //"наблюдатель" содержит события о нажатии клавиш?
             if (keyboardObserver.hasKeyEvents()) {
                 KeyEvent event = keyboardObserver.getEventFromTop();
@@ -93,10 +98,6 @@ public class Arkanoid {
             checkStandBump();
             //проверяем, что шарик мог улететь через дно.
             checkEndGame();
-            //отрисовываем все объекты
-            canvas.clear();
-            draw(canvas);
-            canvas.print();
             //пауза
             Thread.sleep(300);
         }
@@ -168,6 +169,7 @@ public class Arkanoid {
         game.getBricks().add(new Brick(8, 5));
         game.getBricks().add(new Brick(14, 5));
         game.getBricks().add(new Brick(16, 3));
+        game.isGameOver = false;
         try {
             game.run();
         } catch (Exception ex) {
